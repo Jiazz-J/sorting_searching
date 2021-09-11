@@ -1,3 +1,28 @@
     
     const candies =[1,2,23,4]
     const greatestNumber = Math.max(...candies);
+
+
+// iterative method
+function preorderTraversal(root: TreeNode | null): number[] {
+    let stack = [];
+    let currentNode = null;
+    let result = [];
+	
+    stack.push(root);
+	
+    while (currentNode = stack.pop()) {
+        result.push(currentNode.val);
+        
+        if (currentNode.right) stack.push(currentNode.right);
+        if (currentNode.left) stack.push(currentNode.left);
+    }
+    return result;
+};
+
+
+
+/// Not repeated number (2)
+function singleNumber(nums: number[]): number {
+  return nums.reduce((a, b) => a ^ b);
+};
