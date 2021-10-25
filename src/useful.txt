@@ -26,3 +26,7 @@ function preorderTraversal(root: TreeNode | null): number[] {
 function singleNumber(nums: number[]): number {
   return nums.reduce((a, b) => a ^ b);
 };
+
+
+//Only Alpha numeric
+/[^a-z0-9]/gi

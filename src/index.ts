@@ -3,6 +3,7 @@ import {ListNode, mergeTwoLists} from './merge-two-sorted-lists';
 import {removeElement} from './remove-element';
 import {isValid} from './validate-parenthesis';
 import {isEmpty, LoDashWrapper} from 'lodash';
+import {countUniqueValues} from './countUniqueValues';
 
 /*
 const input = [3, 4, 1, 0, -2];
@@ -19,7 +20,7 @@ console.log(mergeTwoLists(l1, l2) ?? 'yield null'); */
 
 // console.log(mergeTwoLists(new ListNode(0), null));
 
-const nums = [3, 2, 2, 3];
+/* const nums = [3, 2, 2, 3];
 
 console.log(removeElement(nums, 2));
 
@@ -28,4 +29,6 @@ console.log('🚀 ~ file: index.ts ~ line 23 ~ nums', nums);
 console.log(
   '🚀 ~ file: index.ts ~ line 29 ~ nums.findIndex(3)',
   nums.indexOf(3)
-);
+); */
+
+console.log(countUniqueValues([1, 2]));
