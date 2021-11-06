@@ -5,5 +5,5 @@
     "outDir": "dist",
     "sourceMap": true
   },
-  "include": ["src/**/*.ts", "test/**/*.ts", "src/binary-search.js"]
+  "include": ["src/**/*.ts", "test/**/*.ts", "src/binary-search.js", "src/split-array-sorted.ts"]
 }
