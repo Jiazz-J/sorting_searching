@@ -4,5 +4,5 @@
   ],
   "ext": ".ts,.js",
   "ignore": [],
-  "exec": "ts-node ./src/merge-sorted-arrays.ts"
+  "exec": "ts-node ./src/linked-list/singly-linked-list.ts "
 }
