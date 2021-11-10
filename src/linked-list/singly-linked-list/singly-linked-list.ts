@@ -157,8 +157,14 @@ class SinglyLinkedList {
     // upcoming next should be changed to tail
 
     let current = this.head;
+    this.tail = this.head;
     let reverse = null;
 
+    // Get the current node
+    // Save it's next to a new variable because we going to strip the current node
+    // Set current node next to the reverse list
+    // set the reverse to the temp
+    // assign newly created variable to current node
     while (current) {
       const temp = current;
       const nextNode = current.next;
