@@ -1,0 +1,7 @@
+Built in array can be used as stack
+push and pop
+unshift and shift -- there is no real benifit in using this approach
+
+
+Queues-- FIFO
+SHIFT and PUSH -- assume
