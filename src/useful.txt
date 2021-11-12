@@ -30,3 +30,11 @@ function singleNumber(nums: number[]): number {
 
 //Only Alpha numeric
 /[^a-z0-9]/gi
+
+
+
+
+BST -- depends upon how the data is going to look like, it may even look like singly linked list, then searching cannot be 
+log n , it is better to pick a middle element from the list and reconstruct it.
+insertion - log n
+searching - log n

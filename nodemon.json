@@ -4,5 +4,5 @@
   ],
   "ext": ".ts,.js",
   "ignore": [],
-  "exec": "ts-node ./src/queue/queue.ts "
+  "exec": "ts-node ./src/binary-search-tree/binary-search-tree.ts"
 }
