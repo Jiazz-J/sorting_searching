@@ -140,6 +140,37 @@ class BinarySearchTree {
 
     return [minNode, parentNode];
   }
+
+  // Traversals
+  // Breadth first Search uses queues
+  // Enqueue node and dequeue it after adding child nodes of it
+  // dequeued nodes can be saved to an array
+  bfs() {
+    if (!this.root) {
+      return null;
+    }
+
+    const queue = [this.root];
+    const visited = [];
+    let node;
+
+    while (queue.length) {
+      node = queue.shift();
+      visited.push(node);
+      if (node?.left) {
+        queue.push(node.left);
+      }
+      if (node?.right) {
+        queue.push(node.right);
+      }
+    }
+
+    return visited;
+  }
+
+  printValues(arr: (Node | undefined)[] | null) {
+    arr?.forEach(ele => console.log(ele?.val));
+  }
 }
 
 const bst = new BinarySearchTree();
@@ -147,14 +178,15 @@ bst.insert(10);
 
 bst.insert(20);
 bst.insert(8);
-bst.insert(78);
+bst.insert(6);
+bst.insert(9);
+
 bst.insert(88);
-bst.insert(81);
+//bst.insert(81);
 bst.insert(99);
-bst.remove(88);
+//bst.remove(88);
 
-console.log(JSON.stringify(bst, null, 2));
-
+bst.printValues(bst.bfs());
 /*
 
                                     10
@@ -164,6 +196,14 @@ console.log(JSON.stringify(bst, null, 2));
                                             89
 
 
+
+                                            10
+8
+20
+6
+9
+88
+99
 
  const tree = JSON.parse(
   '{"root":{"left":{"left":null,"right":null,"val":8},"right":{"left":null,"right":{"left":null,"right":{"left":null,"right":{"left":null,"right":null,"val":89},"val":88},"val":78},"val":20},"val":10}}'
