@@ -53,22 +53,20 @@ class BinarySearchTree {
     return null;
   }
 
-  remove(val: number) {
-    let current: Node | null = this.root;
+  remove(val: number, node?: Node | null) {
+    let current: Node | null = node || this.root;
 
     let parent = null;
 
     while (current) {
       if (current.val === val) {
         if (this.isLeaf(current)) {
-          this.removeNodeLeaf(parent);
+          this.removeLeafNode(parent, val);
         } else if (this.hasOneChild(current!)) {
           this.removeNodeWithOneChild(parent, current);
         } else {
-          //
+          this.removeNodeWithTwoChildren(current);
         }
-        console.log('Is Leaf ', this.isLeaf(current!));
-        console.log(' has One child ', this.hasOneChild(current!));
 
         break;
         //return current;
@@ -90,12 +88,15 @@ class BinarySearchTree {
     return (current.left && !current.right) || (current.right && !current.left);
   }
 
-  private removeNodeLeaf(parent: Node | null) {
+  private removeLeafNode(parent: Node | null, val: number) {
     if (!parent) {
       this.root = null;
     } else {
-      parent.left = null;
-      parent.right = null;
+      if (parent.left?.val === val) {
+        parent.left = null;
+      } else {
+        parent.right = null;
+      }
     }
   }
 
@@ -112,23 +113,47 @@ class BinarySearchTree {
       this.root = childNode;
     }
   }
+
+  private removeNodeWithTwoChildren(current: Node) {
+    const [minNode, parentMinNode] = this.findMinValueNode(current)!;
+
+    if (minNode && parentMinNode) {
+      const minValue = minNode.val;
+      this.remove(minValue, current);
+      current.val = minValue;
+    }
+  }
+
+  private findMinValueNode(node: Node) {
+    let min = node.val;
+    let minNode;
+    let parentNode;
+    let current: Node | null = node;
+    while (current) {
+      if (current.val < min) {
+        min = current.val;
+        minNode = current;
+      }
+      parentNode = current.left || parentNode;
+      current = current.left;
+    }
+
+    return [minNode, parentNode];
+  }
 }
 
 const bst = new BinarySearchTree();
 bst.insert(10);
-console.log(bst);
+
 bst.insert(20);
 bst.insert(8);
 bst.insert(78);
 bst.insert(88);
-bst.insert(89);
-bst.remove(10);
+bst.insert(81);
+bst.insert(99);
+bst.remove(88);
+
 console.log(JSON.stringify(bst, null, 2));
-
-/* console.log(bst);
-
-console.log(bst.find(20));
-console.log(bst.find(1)); */
 
 /*
 
@@ -138,13 +163,12 @@ console.log(bst.find(1)); */
                                           88
                                             89
 
- */
 
-/* const tree = JSON.parse(
+
+ const tree = JSON.parse(
   '{"root":{"left":{"left":null,"right":null,"val":8},"right":{"left":null,"right":{"left":null,"right":{"left":null,"right":{"left":null,"right":null,"val":89},"val":88},"val":78},"val":20},"val":10}}'
 );
 
-console.log(tree); */
 
 // Remove a leaf node
 // Store parent and set its removal node reference to null
@@ -152,3 +176,9 @@ console.log(tree); */
 // Remove a node which has only one child
 // Store parent, store removed node left or right reference
 // Assign this child reference of removing node to parent
+
+// Remove a node which has two children
+// find the node, find the minimun value in the right subtree
+// swap values of current min value
+// delete the node with min value
+*/
