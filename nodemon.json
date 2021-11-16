@@ -4,5 +4,5 @@
   ],
   "ext": ".ts,.js",
   "ignore": [],
-  "exec": "ts-node ./src/binary-search-tree/binary-search-tree.ts"
+  "exec": "ts-node ./src/heaps/max-binary-heap.ts"
 }

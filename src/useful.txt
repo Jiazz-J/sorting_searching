@@ -38,3 +38,27 @@ BST -- depends upon how the data is going to look like, it may even look like si
 log n , it is better to pick a middle element from the list and reconstruct it.
 insertion - log n
 searching - log n
+
+DFS-- stacks
+    In-Order --- Left - Root - Right
+        insertion order 
+            check root
+            insert root.right
+            insert root
+            insert root.left
+
+            while stack.length > 0
+                node = stack.pop()
+                check and insert
+                node.left
+                node
+                node.right
+
+
+
+
+DFS -- recursive
+        Pre-order -- Root-left-right
+            print root
+            visit left
+            visit right

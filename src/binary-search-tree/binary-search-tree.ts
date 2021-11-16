@@ -141,6 +141,10 @@ class BinarySearchTree {
     return [minNode, parentNode];
   }
 
+  printValues(arr: (Node | undefined)[] | null) {
+    arr?.forEach(ele => console.log(ele?.val));
+  }
+
   // Traversals
   // Breadth first Search uses queues
   // Enqueue node and dequeue it after adding child nodes of it
@@ -168,25 +172,56 @@ class BinarySearchTree {
     return visited;
   }
 
-  printValues(arr: (Node | undefined)[] | null) {
-    arr?.forEach(ele => console.log(ele?.val));
+  dfsPreOrder() {
+    const visited: Node[] = [];
+    if (this.root) {
+      this.recDfsPreOrder(this.root, visited);
+    }
+
+    return visited;
+  }
+
+  private recDfsPreOrder(node: Node | null, visited: Node[]) {
+    if (node) {
+      visited.push(node);
+      this.recDfsPreOrder(node.left, visited);
+      this.recDfsPreOrder(node.right, visited);
+    }
+  }
+
+  dfsPostOrder() {
+    const visited: Node[] = [];
+    if (this.root) {
+      this.recDfsPostOrder(this.root, visited);
+    }
+
+    return visited;
+  }
+
+  private recDfsPostOrder(node: Node | null, visited: Node[]) {
+    if (node) {
+      this.recDfsPostOrder(node.left, visited);
+      this.recDfsPostOrder(node.right, visited);
+      visited.push(node);
+    }
   }
 }
 
 const bst = new BinarySearchTree();
 bst.insert(10);
 
-bst.insert(20);
-bst.insert(8);
 bst.insert(6);
-bst.insert(9);
+bst.insert(15);
+bst.insert(3);
+bst.insert(8);
 
-bst.insert(88);
+bst.insert(20);
 //bst.insert(81);
-bst.insert(99);
+//bst.insert(99);
 //bst.remove(88);
 
-bst.printValues(bst.bfs());
+//bst.printValues(bst.bfs());
+bst.printValues(bst.dfsPostOrder());
 /*
 
                                     10
