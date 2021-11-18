@@ -38,11 +38,15 @@ class MaxBinaryHeap {
   }
 
   private bubbleDown(index: number) {
-    if (index < this.values.length) {
-      const childIndex = 2 * index; // Out of bound check should be performed
+    const childIndex = 2 * index;
+    if (childIndex + 1 < this.values.length) {
       const child_1 = this.values[childIndex + 1];
-      const child_2 = this.values[childIndex + 2];
-      const maxElement = Math.max(child_1, child_2);
+
+      let child_2;
+      if (childIndex + 2 < this.values.length) {
+        child_2 = this.values[childIndex + 2];
+      }
+      const maxElement = Math.max(child_1, child_2 ?? 0);
       if (maxElement > this.values[index]) {
         const indexToBeMoved =
           maxElement === child_1 ? childIndex + 1 : childIndex + 2;
