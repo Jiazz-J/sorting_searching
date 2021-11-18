@@ -39,7 +39,7 @@ class MaxBinaryHeap {
 
   private bubbleDown(index: number) {
     const childIndex = 2 * index;
-    if (childIndex + 1 < this.values.length) {
+    if (childIndex + 1 <= this.values.length) {
       const child_1 = this.values[childIndex + 1];
 
       let child_2;
