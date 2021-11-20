@@ -4,5 +4,5 @@
   ],
   "ext": ".ts,.js",
   "ignore": [],
-  "exec": "ts-node ./src/priority-queue/priority-queue.ts"
+  "exec": "node ./src/hash-set/hash-table.js"
 }

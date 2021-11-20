@@ -5,3 +5,28 @@ unshift and shift -- there is no real benifit in using this approach
 
 Queues-- FIFO
 SHIFT and PUSH -- assume
+
+
+HashTable
+    -- Add a hash function by which the output is always deterministic
+
+    We can use arrays
+
+        Handling Collisions
+            Seperate chaining -- store the values in the nested structure 
+            Linear probing -- find the next empty spot and insert the element
+    
+
+
+
+
+{
+  "watch": [
+    "src"
+  ],
+  "ext": ".ts,.js",
+  "ignore": [],
+ // "exec": "ts-node ./src/priority-queue/priority-queue.ts"
+
+  "exec":./src/hash-set/hash-table.js
+}
