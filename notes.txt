@@ -18,6 +18,10 @@ HashTable
     
 
 
+To reverse an array 
+    [].slice().reverse()
+
+
 
 
 {
