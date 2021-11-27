@@ -24,6 +24,26 @@ To reverse an array
 
 
 
+Dijkstra's algorithm:
+
+// Restore the shortest paths
+// Shortest distance between source, destination and all others.
+    Pick the starting node
+      Initialize a Travelled map with all vertices with null values
+      Initialize a distance map and all the vertices as keys and infinity as values except for starting node
+        Pick the vertex with shortest value and calculate distance between its neighbours and do a comparision and update
+        those values in the distance map and update the Travelled map with how we get there
+
+        Add that vertex to visited array
+
+        Again pick a unvisited vertex with lowest value 
+        
+      calculate distance between its neighbours
+        save them in a data structure
+
+
+
+
 {
   "watch": [
     "src"

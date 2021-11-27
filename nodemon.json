@@ -4,5 +4,5 @@
   ],
   "ext": ".ts,.js",
   "ignore": [],
-  "exec": "node ./src/graphs/graphs-adjacency-list.js"
+  "exec": "node ./src/graphs/weighted-graphs.js"
 }
